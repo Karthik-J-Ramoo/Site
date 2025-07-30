@@ -1,15 +1,16 @@
 // START OF CODE FOR src/app/Components/Navbar/Navbar.jsx
 "use client";
 import React from 'react';
+import Link from 'next/link'; 
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between p-4 bg-[#4C2C2C] text-white rounded-b-lg shadow-md">
-      <div className="flex items-center space-x-4">
+    <nav className="flex items-center justify-between p-6 bg-[#4C2C2C] text-white rounded-b-lg shadow-md">
+       <Link href="/" className="flex items-center space-x-4">
         {/* Circular profile/logo placeholder */}
         <div className="w-10 h-10 bg-[#FFF8F8] rounded-full shadow-inner"></div>
-        <span className="text-3xl color-[rgb(255,255,255)]font-bold font-geist tracking-wide">Website name</span>
-      </div>
+        <span className="text-3xl  color-[rgb(255,255,255)]font-bold font-geist tracking-wide">Website name</span>
+      </Link>
       <div className="relative">
         <input
           type="text"

@@ -1,5 +1,5 @@
 // START OF CODE FOR src/app/Components/Footer/Footer.jsx
-"use client"; // CRITICAL: This must be the very first line of the file.
+"use client"; // Added for client-side rendering compatibility
 import React from 'react';
 
 const Footer = () => {
@@ -25,25 +25,15 @@ const Footer = () => {
           <a href="#" className="text-2xl font-normal font-poppins text-black hover:text-gray-700">Terms And Conditions</a>
         </div>
 
-        {/* Column 3 - Placeholder for the large circle/logo */}
+        {/* Column 3 - Removed circular logo and copyright text */}
         <div className="flex justify-end items-end relative">
-          <p className="absolute bottom-0 right-0 text-2xl font-normal font-poppins text-black">
-            <a
-              href="#"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="underline hover:text-gray-700"
-            >
-              © XYZ
-            </a>
-            <span className="font-normal text-black"> copyright</span>
-          </p>
-          <div className="w-[103px] h-[103px] bg-[#4C2C2CB5] rounded-full absolute top-8 right-0"></div>
+          {/* Removed the <p> tag containing copyright */}
+          {/* Removed the <div> for the circular logo */}
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer; // <--- THIS LINE IS ABSOLUTELY ESSENTIAL. MAKE SURE IT'S THERE AND CORRECT.
+export default Footer;
 // END OF CODE FOR src/app/Components/Footer/Footer.jsx

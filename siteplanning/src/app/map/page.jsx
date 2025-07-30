@@ -3,9 +3,10 @@
 import React, { useState, useRef, useEffect } from 'react'; // Import useRef and useEffect
 import Navbar from '../Components/Navbar/Navbar'; // Adjust path if needed
 import Footer from '../Components/Footer/Footer'; // Adjust path if needed
+import Link from 'next/link'; // Import Link for navigation
+import { FILTER_OPTIONS } from '../../utils/filters'; // Import filter options
 
 // Filter Panel Component
-// Now accepts setShowFilters to allow closing the panel
 const FilterPanel = ({ isVisible, setShowFilters }) => {
   // Ref for detecting clicks outside the panel
   const panelRef = useRef(null);
@@ -69,7 +70,7 @@ const FilterPanel = ({ isVisible, setShowFilters }) => {
               <span className="material-symbols-outlined mr-2 text-xl">
                 {option.iconClass}
               </span>
-              {option.label}
+              <span className="flex-grow">{option.label}</span> {/* Added flex-grow to label */}
             </label>
             <input
               type="checkbox"
@@ -93,7 +94,7 @@ const MapContent = () => {
       <h1 className="text-4xl font-semibold font-geist text-black mb-6">Map of Planning Data for Bengaluru</h1>
       
       {/* Map Placeholder - Changed background color to bg-gray-300 */}
-      <div className="w-full h-[500px] bg-rgb(150,150,150) border border-gray-400 rounded-lg overflow-hidden shadow-lg flex items-center justify-center mb-4">
+      <div className="w-full h-[500px] bg-gray-300 border border-gray-400 rounded-lg overflow-hidden shadow-lg flex items-center justify-center mb-4">
         <img
           className="w-full h-full object-cover"
           alt="Map of Bengaluru"
@@ -130,8 +131,11 @@ const MapContent = () => {
       {/* Pass setShowFilters to FilterPanel */}
       <FilterPanel isVisible={showFilters} setShowFilters={setShowFilters} />
 
-      <p className="text-lg font-normal font-poppins text-[#4E4E4E] text-center mt-4">
-        click here to generate report ONLY on selected filters
+      <p className="text-lg font-normal font-poppins text-[#4E4E4E] text-center mt-4" style={{ marginBottom: '150px' }}> {/* Added 100px margin-bottom */}
+        {/* Changed to a Next.js Link component */}
+        <Link href="/report" className="hover:underline">
+          click here to generate report ONLY on selected filters
+        </Link>
       </p>
     </div>
   );
